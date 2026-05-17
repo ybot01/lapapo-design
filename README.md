@@ -36,3 +36,5 @@ using this algorithm should make the hops required to find info on another node 
 if you simulate this setup then only takes few hops to find another nodes info most of the time, higher hop counts decreases asympotically so get majority low down and occasional high ones. hops average does not change with size of the network
 
 this is better than current decentralised network standards such as kademilia which take on average log2(network size) hops to find another nodes info
+
+I've tried to explain this best as i can, if someone else gets it and thinks of a better way to explain please submit a pull request
