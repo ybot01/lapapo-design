@@ -8,7 +8,7 @@ alternative design for a decentralised network
 - once network above certain size (1000s-10,000s nodes) each node starts using an algorithm to determine which other nodes to store info on
 
 
-- algorithm is as follows:
+algorithm is as follows:
 
 - node IDs are byte length L, all must be same length, relies on node IDs being randomly distributed to work effectively, this should be true for randomly generated asymmetric keypairs
 - xor the other node id with own node id and get trailing zeroes of result
