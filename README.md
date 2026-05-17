@@ -23,7 +23,7 @@ algorithm is as follows:
 - for example if total number of nodes is 2^30 (≈1 billion) then each node would store approx 2^15 * 2 = 2^16 ≈ 65,000 other nodes info
 
 
-using this algorithm should make the hops required to find info on another user low (<4)
+using this algorithm should make the hops required to find info on another node low (<4)
 
 - get node id want to get info of
 - of all nodes have info of, find one which is closest by log2 absolute difference to target node (lowest value)
