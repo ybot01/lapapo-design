@@ -18,7 +18,7 @@ fn trailing_zeroes<const N: usize>(id_1: [u8;N], id_2: [u8;N]) -> usize {
     usize::try_from(total).unwrap()
 }
 
-const MIDPOINT_U256: LazyLock<U256> = LazyLock::new(|| (U256::MAX / 2) + 1);
+static MIDPOINT_U256: LazyLock<U256> = LazyLock::new(|| (U256::MAX / 2) + 1);
 
 fn log2_abs_diff(id_1: SecretKey, id_2: SecretKey) -> usize {
     let id_1_u256 = U256::from_be_bytes(id_1);
@@ -44,11 +44,14 @@ fn main() {
         let mut other_node_ids = HashSet::new();
         //-2 as separately generate start node id and target node id
         for _ in 0..(NETWORK_SIZE-2) {_ = other_node_ids.insert(get_random_node_id())}
+
         let target_node_id = get_random_node_id();
         other_node_ids.insert(target_node_id);
-        let mut hop_counter = 0;
+
         let mut current_node_id = get_random_node_id(); //self node id
         other_node_ids.insert(current_node_id);
+
+        let mut hop_counter = 0;
         while current_node_id != target_node_id{
             hop_counter += 1;
             //find which other nodes should store
@@ -58,6 +61,7 @@ fn main() {
                 trailing_zeroes_pows[trailing_zeroes(current_node_id, node_id)].insert(node_id);
                 log2_abs_diff_pows[255 - log2_abs_diff(current_node_id, node_id)].insert(node_id);
             }
+
             //calculate N by counting down until accumulated total is large enough
             let mut trailing_zeroes_node_count = 0;
             let mut log2_abs_diff_node_count = 0;
