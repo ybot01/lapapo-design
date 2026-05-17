@@ -1,6 +1,9 @@
 # lapapo-design
 alternative design for a decentralised network
 
+see code for simulation code in rust to demonstrate how it works
+
+
 - network is made up of nodes
 - each node is identified by unique assymetric keypair, they share the public key but private key they keep secret
 - a nodes publicly shared information is: node id (public key), IP address, UDP port, info counter, info signature (highest info counter is most recent)
