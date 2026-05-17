@@ -1,0 +1,15 @@
+[package]
+name = "main"
+version = "0.1.0"
+edition = "2024"
+
+[profile.release]
+codegen-units = 1
+lto = "fat"
+panic = "abort"
+strip = "symbols"
+
+[dependencies]
+ed25519-dalek = { version = "2.2.0" }
+rand = { version = "0.10.1" }
+ethnum = { version = "1.5.3" }
