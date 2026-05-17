@@ -13,7 +13,7 @@ algorithm is as follows:
 - node IDs are byte length L, all must be same length, relies on node IDs being randomly distributed to work effectively, this should be true for randomly generated asymmetric keypairs
 - xor the other node id with own node id and get trailing zeroes of result
 - calculate log2 absolute difference between own node id and other node id (as if they were numbers), absolute difference means loops around so 0 and max are only 1 away from each other instead of max
-- select number N such that selecting only nodes with trailing zeroes >= 2^N totals >= 2^N nodes and selecting only nodes with log2 absolute difference < 2^(L-N) totals >= 2^N nodes aswell
+- select number N such that selecting only nodes with trailing zeroes >= 2^N totals >= 2^N nodes and selecting only nodes with log2 absolute difference < (L-N) totals >= 2^N nodes aswell
 - start N at 0 and increase until find maximum value of N for which this is true in both cases
 - select this value of N and only store info on nodes that meet the criteria for either the trailing zeroes or log2 absolute difference case
 - each time a new nodes info is added can see whether it is possible to increase N by 1 and still have at least 2^N nodes totalled in both cases in which case can increase and remove info of all nodes that met lower value of N but not now N+1.
